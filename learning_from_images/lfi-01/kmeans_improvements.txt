@@ -1,0 +1,8 @@
+One of the caveats of this k-means implementation is, that at every run of the k-means method our clusters are initialized at random.
+That means there is no way to consistently recreate the same image by rerunning the kmeans method
+
+One other problem of this is, that initially cluster centers could be very very close that it would make sense use 1 cluster for all the points belonging to both clusters
+
+For the first problem, one could make it so that the initialization takes the shape of the image into regard and always takes the same k coordinates from the image in the range of the shape
+
+For the second problem, one could calculate the overall error of both clusters and compare it to the overall error of a new merged cluster, computed by the mean of the points of both former clusters. if the overall error of this new cluster is lower we would use this as a new cluster and drop the former 2
